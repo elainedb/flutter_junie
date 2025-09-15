@@ -44,14 +44,15 @@ Authorized emails (example):
 
 
 ## Authorized emails configuration
-By default, the app uses the sample allowlist committed in lib/config/authorized_emails.sample.dart. This ensures local builds (including release) work out of the box.
+The app now imports lib/config/authorized_emails.dart. This file is ignored by Git (see .gitignore), so you can keep your real allowlist locally without committing it.
 
-If you need to customize the allowlist locally without committing changes:
-- Option A: Edit lib/config/authorized_emails.sample.dart directly (simple for local experiments).
-- Option B (advanced): Create lib/config/authorized_emails.dart and change the import in lib/login_screen.dart to point to it locally. Note: lib/config/authorized_emails.dart is ignored by Git via .gitignore, so it won’t be committed.
+Quick start locally:
+- Copy the sample to the real config path:
+  cp lib/config/authorized_emails.sample.dart lib/config/authorized_emails.dart
+- Edit lib/config/authorized_emails.dart and put your actual emails.
 
 CI notes:
-- The GitHub Actions workflow still copies the sample to lib/config/authorized_emails.dart for backward compatibility; this step is harmless now that the app imports the sample directly.
+- The GitHub Actions workflow automatically copies lib/config/authorized_emails.sample.dart to lib/config/authorized_emails.dart before analyze/build, so CI always has a file to import.
 
 
 ## Firebase config files are not committed

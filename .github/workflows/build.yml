@@ -21,7 +21,12 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: Prepare authorized emails config
-        run: cp lib/config/authorized_emails.sample.dart lib/config/authorized_emails.dart
+        run: |
+          if [ -f config/authorized_emails.sample.dart ]; then
+            cp config/authorized_emails.sample.dart lib/config/authorized_emails.dart
+          else
+            cp lib/config/authorized_emails.sample.dart lib/config/authorized_emails.dart
+          fi
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.
       - name: Analyze project source
@@ -46,7 +51,12 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: Prepare authorized emails config
-        run: cp lib/config/authorized_emails.sample.dart lib/config/authorized_emails.dart
+        run: |
+          if [ -f config/authorized_emails.sample.dart ]; then
+            cp config/authorized_emails.sample.dart lib/config/authorized_emails.dart
+          else
+            cp lib/config/authorized_emails.sample.dart lib/config/authorized_emails.dart
+          fi
       - name: Build release APK (signed with debug keystore)
         run: flutter build apk --release
       - name: Upload APK artifact
