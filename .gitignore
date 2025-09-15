@@ -43,3 +43,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Local authorized emails config (do not commit)
+lib/config/authorized_emails.dart
+
+
+# Firebase configuration files (do not commit)
+# Android
+/google-services.json
+/android/app/google-services.json
+# iOS/macOS
+/ios/Runner/GoogleService-Info.plist
+/macos/Runner/GoogleService-Info.plist
