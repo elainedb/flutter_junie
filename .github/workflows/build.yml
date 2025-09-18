@@ -20,12 +20,17 @@ jobs:
           flutter-version: '3.35.3'
       - name: Install dependencies
         run: flutter pub get
-      - name: Prepare authorized emails config
+      - name: Prepare local configs
         run: |
+          # Copy authorized emails config from sample if missing in repo
           if [ -f config/authorized_emails.sample.dart ]; then
             cp config/authorized_emails.sample.dart lib/config/authorized_emails.dart
           else
             cp lib/config/authorized_emails.sample.dart lib/config/authorized_emails.dart
+          fi
+          # Copy YouTube API config from sample to avoid analyzer errors
+          if [ -f lib/config/config.sample.dart ]; then
+            cp lib/config/config.sample.dart lib/config/config.dart
           fi
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'config/authorized_emails.dart';
+import 'main_screen.dart';
 
 /// Simple placeholder screen to navigate to on successful login
 class NextScreen extends StatelessWidget {
@@ -99,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (!mounted) return;
         Navigator.of(context).push(
           MaterialPageRoute<Widget>(
-            builder: (_) => NextScreen(email: email),
+            builder: (_) => const MainScreen(),
           ),
         );
       } else {

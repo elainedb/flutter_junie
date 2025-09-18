@@ -44,9 +44,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Local authorized emails config (do not commit)
+# Local authorized emails and API config (do not commit)
 lib/config/authorized_emails.dart
-
+lib/config/config.dart
 
 # Firebase configuration files (do not commit)
 # Android
