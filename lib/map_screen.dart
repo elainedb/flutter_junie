@@ -32,7 +32,6 @@ class _MapBodyState extends State<_MapBody> {
   final MapController _mapController = MapController();
   final VideoRepository _repo = VideoRepository();
 
-  List<VideoItem> _videos = [];
   List<VideoItem> _videosWithLocation = [];
   bool _loading = true;
   String? _error;
@@ -58,7 +57,6 @@ class _MapBodyState extends State<_MapBody> {
           .where((v) => v.latitude != null && v.longitude != null)
           .toList();
       setState(() {
-        _videos = source;
         _videosWithLocation = withLoc;
         _loading = false;
         _error = null;
@@ -224,7 +222,7 @@ class _MapBodyState extends State<_MapBody> {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.6),
+                  color: Colors.black.withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Text(
