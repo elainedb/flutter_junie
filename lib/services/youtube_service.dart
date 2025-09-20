@@ -87,7 +87,7 @@ class YouTubeService {
         'type': 'video',
         'order': 'date',
         'maxResults': '50',
-        if (pageToken != null) 'pageToken': pageToken!,
+        if (pageToken != null) 'pageToken': pageToken,
       });
       final sResp = await _client.get(searchUri);
       if (sResp.statusCode != 200) {
@@ -117,7 +117,7 @@ class YouTubeService {
           ),
         );
       }
-    } while (pageToken != null && pageToken!.isNotEmpty);
+    } while (pageToken != null && pageToken.isNotEmpty);
 
     if (prelim.isEmpty) return prelim;
 

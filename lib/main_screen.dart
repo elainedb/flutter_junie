@@ -1,3 +1,4 @@
+// ignore_for_file: deprecated_member_use
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -61,7 +62,7 @@ class _MainScreenBody extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               DropdownButtonFormField<String>(
-                value: selectedChannel?.isEmpty == true ? null : selectedChannel,
+                initialValue: selectedChannel?.isEmpty == true ? null : selectedChannel,
                 hint: const Text('Source Channel'),
                 items: [
                   const DropdownMenuItem<String>(value: '', child: Text('All Channels')),
@@ -71,7 +72,7 @@ class _MainScreenBody extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               DropdownButtonFormField<String>(
-                value: selectedCountry?.isEmpty == true ? null : selectedCountry,
+                initialValue: selectedCountry?.isEmpty == true ? null : selectedCountry,
                 hint: const Text('Country'),
                 items: [
                   const DropdownMenuItem<String>(value: '', child: Text('All Countries')),
