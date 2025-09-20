@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import 'services/youtube_service.dart';
 import 'viewmodels/video_view_model.dart';
+import 'map_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -160,6 +161,15 @@ class _MainScreenBody extends StatelessWidget {
           appBar: AppBar(
             title: Text('Latest Videos (${vm.items.length})'),
             actions: [
+              TextButton.icon(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute<Widget>(builder: (_) => const MapScreen()),
+                  );
+                },
+                icon: const Icon(Icons.map, color: Colors.white),
+                label: const Text('View Map', style: TextStyle(color: Colors.white)),
+              ),
               IconButton(
                 tooltip: 'Refresh',
                 icon: const Icon(Icons.refresh),

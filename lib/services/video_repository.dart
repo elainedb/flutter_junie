@@ -30,6 +30,11 @@ class VideoRepository {
     return combined;
   }
 
+  Future<List<VideoItem>> getCachedVideos() async {
+    final rows = await _db.getAllVideos();
+    return rows.map(_fromRow).toList();
+  }
+
   Map<String, Object?> _toRow(VideoItem v) => {
         'id': v.videoId,
         'title': v.title,
