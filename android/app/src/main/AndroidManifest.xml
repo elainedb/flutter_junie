@@ -6,6 +6,7 @@
         android:label="flutter_junie"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <profileable android:shell="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
