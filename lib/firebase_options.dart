@@ -69,4 +69,5 @@ class DefaultFirebaseOptions {
     iosClientId: '83953880984-2i9er9ido7q0nhscgepuskjpta0o31td.apps.googleusercontent.com',
     iosBundleId: 'dev.elainedb.flutter-junie',
   );
+
 }
